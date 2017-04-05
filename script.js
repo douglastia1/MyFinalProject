@@ -1,5 +1,4 @@
 $(document).ready(function(){
-console.log("hello")
 var slideIndex = 1;
 
 
@@ -30,14 +29,13 @@ showSlides(slideIndex);
 
     $("#button").click(function(){
        var store = $("#input").val() 
-        console.log("hey")
     });
    
-   var url = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search"
-var headers = {
-  "X-Mashape-Key":"RSjfAcyXg2mshzTup1ytaSmxe6pFp1LIPyOjsn0SvfyBXgYEXb",
-  "Accept": "application/json"
-}
+  var url = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search"
+  var headers = {
+    "X-Mashape-Key":"RSjfAcyXg2mshzTup1ytaSmxe6pFp1LIPyOjsn0SvfyBXgYEXb",
+    "Accept": "application/json"
+  }
 
 
 $.ajax({
@@ -56,7 +54,8 @@ function callback(response) {
   console.log('here!');
   console.log('response', response.results);
   $('body').append(response.results[0].title);
-  $("body").append(response.result[0].image);
+  $("body").append(response.results[0].image);
+  $("#recipes-list").append("<img src = 'https://spoonacular.com/recipeImages/" + response.results[0].image + "' />");
   //response.results[0].title
 }
    
